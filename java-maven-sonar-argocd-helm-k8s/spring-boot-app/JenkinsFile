@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'master', url: 'https://github.com/Nani-roy/jenkins-pipeline.git'
+        //git branch: 'master', url: 'https://github.com/Nani-roy/jenkins-pipeline-1.git'
       }
     }
     stage('Build and Test') {
@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://43.204.147.147:9000"
+        SONAR_URL = "http://13.201.97.24:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -47,7 +47,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Jenkins-pipeline"
+            GIT_REPO_NAME = "Jenkins-pipeline-Project-1"
             GIT_USER_NAME = "Nani-roy"
         }
         steps {
